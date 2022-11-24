@@ -1,0 +1,109 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Smythe&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #000000;
+  font-family: "Smythe", cursive;
+}
+
+header {
+  background-image: url(./images/bg\ img.png);
+  color: #ffffff;
+  padding: 2em;
+}
+
+/* Typography */
+
+h1 {
+  font-size: 2.438rem;
+}
+
+header p {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.75rem;
+}
+
+.menu-item p {
+  font-size: 1rem;
+  color: #8b8b8b;
+}
+
+.price {
+  font-size: 1.25rem;
+}
+
+/* Layout */
+
+.display {
+  width: 600px;
+  margin: 0 auto;
+  max-width: 90%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 2em;
+  position: relative;
+}
+
+img {
+  margin-right: 30px;
+}
+
+.item-info {
+  width: 30%;
+}
+
+div.item-info > * {
+  padding: 0.2em;
+}
+
+.price {
+  display: block;
+}
+
+.item-button {
+  margin-left: 220px;
+}
+
+.item-button::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background: #8b8b8b;
+  top: 100%;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Button */
+
+.item-button button {
+  padding: 10px;
+  border-radius: 50%;
+  border-color: #dedede;
+  border-style: solid;
+  background-color: white;
+  cursor: pointer;
+}
+
+i {
+  font-size: 1.25rem;
+  color: #3c3c3c;
+}
