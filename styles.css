@@ -39,9 +39,15 @@ h4 {
 
 .price {
   font-size: 1.25rem;
+  display: block;
 }
 
-/* Layout */
+.your-order h2 {
+  padding: 1em;
+  text-align: center;
+}
+
+/* Menu */
 
 .display {
   width: 600px;
@@ -52,12 +58,13 @@ h4 {
 .menu {
   display: flex;
   flex-direction: column;
+  height: ;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 2em;
+  padding: 1.5em;
   position: relative;
 }
 
@@ -71,10 +78,6 @@ img {
 
 div.item-info > * {
   padding: 0.2em;
-}
-
-.price {
-  display: block;
 }
 
 .item-button {
@@ -106,4 +109,43 @@ div.item-info > * {
 i {
   font-size: 1.25rem;
   color: #3c3c3c;
+}
+
+/* Order section */
+
+.your-order {
+  position: relative;
+}
+
+.order-info {
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0 2em 2em;
+}
+
+.your-order .item {
+  font-size: 1.75rem;
+  margin-right: 15px;
+}
+
+.order-price {
+  margin-left: 400px;
+}
+
+.remove-button button {
+  border: none;
+  background-color: white;
+  color: #bbbbbb;
+  cursor: pointer;
+}
+
+.order-info::after {
+  content: "";
+  position: absolute;
+  height: 0.7px;
+  background: #8b8b8b;
+  top: 70%;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
 }
