@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+
 const menuArray = [
   {
     name: "Pizza",
     ingredients: ["pepperoni", "mushrom", "mozarella"],
-    id: 0,
+    id: uuidv4(),
     price: 14,
     image: "pizza.png",
   },
@@ -11,14 +13,14 @@ const menuArray = [
     ingredients: ["beef", "cheese", "lettuce"],
     price: 12,
     image: "burger.png",
-    id: 1,
+    id: uuidv4(),
   },
   {
     name: "Beer",
     ingredients: ["grain, hops, yeast, water"],
     price: 12,
     image: "beer.png",
-    id: 2,
+    id: uuidv4(),
   },
 ];
 
