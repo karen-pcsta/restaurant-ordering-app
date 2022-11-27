@@ -106,6 +106,10 @@ div.item-info > * {
   cursor: pointer;
 }
 
+.item-button button:active {
+  background-color: #e7dededb;
+}
+
 i {
   font-size: 1.25rem;
   color: #3c3c3c;
