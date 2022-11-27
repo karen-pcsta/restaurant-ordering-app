@@ -58,7 +58,6 @@ h4 {
 .menu {
   display: flex;
   flex-direction: column;
-  height: ;
 }
 
 .menu-item {
@@ -134,7 +133,7 @@ i {
 }
 
 .remove-button {
-  margin-left: -380px;
+  margin-left: -409px;
 }
 
 .remove-button button {
@@ -219,6 +218,10 @@ input {
   width: 350px;
   padding: 1em;
 }
+
+/* .no-blur {
+  filter: blur(0);
+} */
 
 .blur {
   filter: blur(1rem);
