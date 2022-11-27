@@ -12,6 +12,8 @@ document.addEventListener("click", function (e) {
     chosenItem(e.target.dataset.beer);
   } else if (e.target.id === "complete-order-btn") {
     paymentInfo();
+  } else if (e.target.dataset.remove) {
+    removeItem(e);
   }
   renderTotal();
   displaySections();
@@ -33,14 +35,14 @@ function renderOrder() {
 
 function getOrderHtml() {
   let items = "";
-  for (let item of orderItems) {
+  for (let i = 0; i < orderItems.length; i++) {
     items += `
-    <div class="order-info">
-    <span class="item">${item.name}</span>
+    <div class="order-info" >
+    <span class="item">${orderItems[i].name}</span>
     <div class="remove-button">
-    <button>remove</button>
+    <button id="${[i]}" data-remove="${orderItems[i].id}">remove</button>
     </div>
-  <span class="price">$${item.price}</span>
+  <span class="price">$${orderItems[i].price}</span>
     </div>`;
   }
   return items;
@@ -96,6 +98,12 @@ function renderMenu() {
       </div>`;
   }
   document.getElementById("menu-container").innerHTML = menuItem;
+}
+
+function removeItem(e) {
+  let item = e.target.id;
+  orderItems.splice(item, 1);
+  renderOrder();
 }
 
 renderMenu();
