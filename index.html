@@ -23,22 +23,26 @@
     <section class="menu display" id="menu-container">
       <!-- Menu items will be displayed here -->
     </section>
-    <section class="your-order display hidden">
-      <h2>Your order</h2>
-      <div class="order-info">
+    <section class="your-order display hidden" id="yourOrderWrapper">
+      <div class="your-order-title"><h2>Your order</h2></div>
+      <div id="order-display">
+        <!-- <div class="order-info">
         <span class="item">Pizza</span>
         <div class="remove-button">
           <button>remove</button>
         </div>
         <span class="order-price price">$15</span>
+      </div> -->
       </div>
       <hr />
-      <div class="total hidden">
-        <span class="total-title">Total price:</span>
-        <span class="total-price price">$15</span>
-      </div>
-      <div class="complete-order-button-container">
-        <button class="complete-order-button">Complete order</button>
+      <div class="total-container hidden">
+        <div class="total">
+          <span class="total-title">Total price:</span>
+          <span class="total-price price">$15</span>
+        </div>
+        <div class="complete-order-button-container">
+          <button class="complete-order-button">Complete order</button>
+        </div>
       </div>
     </section>
     <div class="overlay hidden" id="overlay">
