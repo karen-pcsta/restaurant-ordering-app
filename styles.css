@@ -139,18 +139,6 @@ i {
   cursor: pointer;
 }
 
-/* .order-info::after {
-  content: "";
-  position: absolute;
-  margin-top: 15px;
-  height: 0.7px;
-  background: #8b8b8b;
-  top: 70%;
-  width: 90%;
-  left: 50%;
-  transform: translateX(-50%);
-} */
-
 .total {
   display: flex;
   align-items: center;
@@ -239,4 +227,14 @@ input {
   color: #ffffff;
   font-weight: bold;
   cursor: pointer;
+}
+
+.order-confirmation-container {
+  margin-top: 1em;
+  width: 550px;
+  text-align: center;
+  padding: 2em;
+  background-color: #ecfdf5;
+  color: #065f46;
+  font-size: 1.25rem;
 }
