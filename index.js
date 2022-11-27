@@ -10,6 +10,8 @@ document.addEventListener("click", function (e) {
     chosenItem(e.target.dataset.hamburger);
   } else if (e.target.dataset.beer) {
     chosenItem(e.target.dataset.beer);
+  } else if (e.target.id === "complete-order-btn") {
+    paymentInfo();
   }
   renderTotal();
   displaySections();
@@ -67,9 +69,17 @@ function renderTotal() {
       <span class="total-price price" id="total-price">$${calculateTotal()}</span>
     </div>
     <div class="complete-order-button-container">
-      <button class="complete-order-button">Complete order</button>
+      <button class="complete-order-button" id="complete-order-btn">Complete order</button>
       </div>
       </div>`;
+}
+
+function paymentInfo() {
+  document.getElementById("overlay").classList.remove("hidden");
+  const elements = document.querySelectorAll(".no-blur");
+  for (let element of elements) {
+    element.classList.add("blur");
+  }
 }
 
 function renderMenu() {
