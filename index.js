@@ -1,6 +1,7 @@
 import menuArray from "./data.js";
 
 const orderWrapper = document.getElementById("yourOrderWrapper");
+const totalContainer = document.getElementById("total-container");
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.pizza) {
@@ -10,32 +11,9 @@ document.addEventListener("click", function (e) {
   } else if (e.target.dataset.beer) {
     chosenItem(e.target.dataset.beer);
   }
-  renderOrder();
-  toggleOrderDisplay();
+  renderTotal();
+  displaySections();
 });
-function toggleOrderDisplay() {
-  if (orderItems) {
-    orderWrapper.classList.remove("hidden");
-  }
-}
-
-function renderMenu() {
-  let menuItem = "";
-  for (let item of menuArray) {
-    menuItem += `<div class="menu-item" id= "menu-item">
-        <img src="./images/${item.image}" alt="" />
-        <div class="item-info">
-          <h4>${item.name}</h4>
-          <p class="ingredients">${item.ingredients}</p>
-          <span class="price">$${item.price}</span>
-        </div>
-        <div class="item-button">
-          <button><i class="fa-regular fa-plus" data-${item.name}="${item.id}"></i></button>
-        </div>
-      </div>`;
-  }
-  document.getElementById("menu-container").innerHTML = menuItem;
-}
 
 let orderItems = [];
 
@@ -64,6 +42,52 @@ function getOrderHtml() {
     </div>`;
   }
   return items;
+}
+
+function displaySections() {
+  if (orderWrapper.classList.contains("hidden")) {
+    orderWrapper.classList.remove("hidden");
+  }
+  if (totalContainer.classList.contains("hidden")) {
+    totalContainer.classList.remove("hidden");
+  }
+}
+
+function calculateTotal() {
+  let totalPrice = 0;
+  for (let item of orderItems) {
+    totalPrice += item.price;
+  }
+  return totalPrice;
+}
+
+function renderTotal() {
+  document.getElementById("total-container").innerHTML = `<div class="total">
+      <span class="total-title">Total price:</span>
+      <span class="total-price price" id="total-price">$${calculateTotal()}</span>
+    </div>
+    <div class="complete-order-button-container">
+      <button class="complete-order-button">Complete order</button>
+      </div>
+      </div>`;
+}
+
+function renderMenu() {
+  let menuItem = "";
+  for (let item of menuArray) {
+    menuItem += `<div class="menu-item" id= "menu-item">
+        <img src="./images/${item.image}" alt="" />
+        <div class="item-info">
+          <h4>${item.name}</h4>
+          <p class="ingredients">${item.ingredients}</p>
+          <span class="price">$${item.price}</span>
+        </div>
+        <div class="item-button">
+          <button><i class="fa-regular fa-plus" data-${item.name}="${item.id}"></i></button>
+        </div>
+      </div>`;
+  }
+  document.getElementById("menu-container").innerHTML = menuItem;
 }
 
 renderMenu();
