@@ -47,11 +47,9 @@ function getOrderHtml() {
 }
 
 function displaySections() {
-  if (orderWrapper.classList.contains("hidden")) {
-    orderWrapper.classList.remove("hidden");
-  }
-  if (totalContainer.classList.contains("hidden")) {
-    totalContainer.classList.remove("hidden");
+  if (orderWrapper.classList.contains("hidden") && totalContainer.classList.contains("hidden")) {
+    orderWrapper.classList.toggle("hidden");
+    totalContainer.classList.toggle("hidden");
   }
 }
 
@@ -75,7 +73,7 @@ function renderTotal() {
 }
 
 function paymentInfo() {
-  document.getElementById("overlay").classList.remove("hidden");
+  document.getElementById("overlay").classList.toggle("hidden");
   const elements = document.querySelectorAll(".no-blur");
   for (let element of elements) {
     element.classList.add("blur");
