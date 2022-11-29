@@ -42,11 +42,13 @@ function getOrderHtml() {
   let items = "";
   for (let i = 0; i < orderItems.length; i++) {
     items += `
-    <div class="order-info" >
-    <span class="item">${orderItems[i].name}</span>
-    <div class="remove-button">
-    <button id="${[i]}" data-remove="${orderItems[i].id}">remove</button>
-    </div>
+    <div class="order-card" >
+      <div class= "order-item">
+        <span class="item">${orderItems[i].name}</span>
+          <div class="remove-button">
+          <button id="${[i]}" data-remove="${orderItems[i].id}">remove</button>
+          </div>
+      </div>
   <span class="price">$${orderItems[i].price}</span>
     </div>`;
   }
@@ -86,7 +88,7 @@ function renderMenu() {
     menuItem += `<div class="menu-item" id= "menu-item">
         <img src="./images/${item.image}" alt="" />
         <div class="item-info">
-          <h4>${item.name}</h4>
+          <h3>${item.name}</h3>
           <p class="ingredients">${item.ingredients}</p>
           <span class="price">$${item.price}</span>
         </div>
