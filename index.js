@@ -3,6 +3,7 @@ import menuArray from "./data.js";
 const orderWrapper = document.getElementById("yourOrderWrapper");
 const totalContainer = document.getElementById("total-container");
 const modal = document.getElementById("overlay");
+const orderConfirmation = document.getElementById("order-confirmation-message");
 
 document.addEventListener("click", function (e) {
   if (e.target.dataset.item) {
@@ -28,7 +29,7 @@ function chosenItem(uuid) {
 }
 
 function renderOrder() {
-  if (orderItems.length > 0) {
+  if (orderItems.length > 0 && orderConfirmation.classList.contains("hidden")) {
     document.getElementById("order-display").innerHTML = getOrderHtml();
     orderWrapper.classList.remove("hidden");
     totalContainer.classList.remove("hidden");
