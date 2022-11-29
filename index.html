@@ -20,10 +20,10 @@
       <h1 class="title">Jimmy's Diner</h1>
       <p>The best burgers and pizzas in town.</p>
     </header>
-    <section class="menu display no-blur" id="menu-container">
+    <section class="menu display" id="menu-container">
       <!-- Menu items will be displayed here -->
     </section>
-    <section class="your-order display hidden no-blur" id="yourOrderWrapper">
+    <section class="your-order display hidden" id="yourOrderWrapper">
       <div class="your-order-title"><h2>Your order</h2></div>
       <div id="order-display">
         <!-- Order items will be displayed here -->
@@ -39,11 +39,12 @@
           <input class="block" id="name" type="text" placeholder="Enter your first name" required />
           <input class="block" id="cardNumber" type="number" placeholder="Enter card number" required />
           <input class="block" id="cvvNumber" type="number" placeholder="Enter CVV" required />
+          <button  class="pay-button" id="close-modal">Pay</button>
         </form>
-        <button class="pay-button" id="close-modal">Pay</button>
+        
       </div>
     </div>
-    <div class="order-confirmation-container display hidden">
+    <div class="order-confirmation-container display hidden" id="order-confirmation-message">
       <p>Thanks, James! Your order is on its way!</p>
     </div>
     <script src="index.js" type="module"></script>
