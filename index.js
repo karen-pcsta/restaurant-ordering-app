@@ -2,21 +2,19 @@ import menuArray from "./data.js";
 
 const orderWrapper = document.getElementById("yourOrderWrapper");
 const totalContainer = document.getElementById("total-container");
+const modal = document.getElementById("overlay");
 
 document.addEventListener("click", function (e) {
-  if (e.target.dataset.pizza) {
-    chosenItem(e.target.dataset.pizza);
-  } else if (e.target.dataset.hamburger) {
-    chosenItem(e.target.dataset.hamburger);
-  } else if (e.target.dataset.beer) {
-    chosenItem(e.target.dataset.beer);
+  if (e.target.dataset.item) {
+    chosenItem(e.target.dataset.item);
   } else if (e.target.id === "complete-order-btn") {
     paymentInfo();
   } else if (e.target.dataset.remove) {
     removeItem(e);
+  } else if (e.target.id === "close-modal") {
+    pay(e);
   }
   renderTotal();
-  displaySections();
 });
 
 let orderItems = [];
@@ -30,7 +28,14 @@ function chosenItem(uuid) {
 }
 
 function renderOrder() {
-  document.getElementById("order-display").innerHTML = getOrderHtml();
+  if (orderItems.length > 0) {
+    document.getElementById("order-display").innerHTML = getOrderHtml();
+    orderWrapper.classList.remove("hidden");
+    totalContainer.classList.remove("hidden");
+  } else {
+    orderWrapper.classList.add("hidden");
+    totalContainer.classList.add("hidden");
+  }
 }
 
 function getOrderHtml() {
@@ -46,13 +51,6 @@ function getOrderHtml() {
     </div>`;
   }
   return items;
-}
-
-function displaySections() {
-  if (orderWrapper.classList.contains("hidden") && totalContainer.classList.contains("hidden")) {
-    orderWrapper.classList.toggle("hidden");
-    totalContainer.classList.toggle("hidden");
-  }
 }
 
 function calculateTotal() {
@@ -76,7 +74,7 @@ function renderTotal() {
 
 function paymentInfo() {
   document.getElementById("overlay").classList.toggle("hidden");
-  const elements = document.querySelectorAll(".no-blur");
+  const elements = document.getElementsByTagName("section");
   for (let element of elements) {
     element.classList.add("blur");
   }
@@ -93,7 +91,7 @@ function renderMenu() {
           <span class="price">$${item.price}</span>
         </div>
         <div class="item-button">
-          <button><i class="fa-regular fa-plus" data-${item.name}="${item.id}"></i></button>
+          <button><i class="fa-regular fa-plus" data-item="${item.id}"></i></button>
         </div>
       </div>`;
   }
@@ -104,6 +102,20 @@ function removeItem(e) {
   let item = e.target.id;
   orderItems.splice(item, 1);
   renderOrder();
+}
+
+function pay(e) {
+  e.preventDefault();
+  orderWrapper.classList.add("hidden");
+  totalContainer.classList.add("hidden");
+  modal.classList.add("hidden");
+  const elements = document.getElementsByTagName("section");
+  for (let element of elements) {
+    element.classList.remove("blur");
+  }
+  setTimeout(function () {
+    document.getElementById("order-confirmation-message").classList.remove("hidden");
+  }, 200);
 }
 
 renderMenu();
