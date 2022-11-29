@@ -219,12 +219,22 @@ input {
   padding: 1em;
 }
 
-/* .no-blur {
-  filter: blur(0);
+/* input:required {
+  border-color: #d34d4d;
 } */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .blur {
   filter: blur(1rem);
+}
+
+form {
+  text-align: center;
 }
 
 .pay-button {
