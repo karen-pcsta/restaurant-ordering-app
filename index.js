@@ -104,16 +104,27 @@ function removeItem(e) {
   renderOrder();
 }
 
-function pay(e) {
-  e.preventDefault();
+function changeDisplayAfterPayment() {
   orderWrapper.classList.add("hidden");
   totalContainer.classList.add("hidden");
   modal.classList.add("hidden");
+}
+
+function getUserInfoHtml() {
+  const nameInputField = document.getElementById("name").value;
+  const userInfo = `<p>Thanks, ${nameInputField}! Your order is on its way!</p> `;
+  document.getElementById("order-confirmation-message").innerHTML = userInfo;
+}
+
+function pay(e) {
+  e.preventDefault();
+  changeDisplayAfterPayment();
   const elements = document.getElementsByTagName("section");
   for (let element of elements) {
     element.classList.remove("blur");
   }
   setTimeout(function () {
+    getUserInfoHtml();
     document.getElementById("order-confirmation-message").classList.remove("hidden");
   }, 200);
 }
