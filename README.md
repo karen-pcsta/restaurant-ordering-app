@@ -1,7 +1,8 @@
 
 # Restaurant Ordering App
 
-This project from Scrimba's course, The Frontend Developer Career Path, is a simple web-based application designed to simulate a restaurant ordering system. It allows users to browse a menu, select items, and view their order in real time. The project is structured as a collaborative learning experience.
+This project from Scrimba's course, The Frontend Developer Career Path, is a simple web-based application designed to simulate a restaurant ordering system. It allows users to browse a menu, select items, and view their order in real time. 
+You can check it at: https://karen-pcsta.github.io/restaurant-ordering-app/
 
 
 ## Features
